@@ -1,0 +1,104 @@
+{
+  "money": 279,
+  "garden_bed_kol": 8,
+  "day": 2,
+  "weather": "rain",
+  "tree": [
+    {
+      "ill": false,
+      "pest": false,
+      "life_day": 0,
+      "harvest_day": 7,
+      "type": "peer"
+    },
+    {
+      "ill": false,
+      "pest": false,
+      "life_day": 0,
+      "harvest_day": 7,
+      "type": "apple"
+    }
+  ],
+  "garden_bed": [
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": false,
+        "life_day": 0,
+        "harvest_day": 7,
+        "type": "tomato",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": false,
+        "life_day": 0,
+        "harvest_day": 7,
+        "type": "potato",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": false
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": false,
+        "life_day": 0,
+        "harvest_day": 0,
+        "type": "potato",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": true,
+        "life_day": 0,
+        "harvest_day": 0,
+        "type": "tomato",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": false
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": false,
+        "life_day": 0,
+        "harvest_day": 7,
+        "type": "pepper",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    },
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": false
+    }
+  ]
+}

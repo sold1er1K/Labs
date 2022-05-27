@@ -1,0 +1,22 @@
+{
+  "money": 70,
+  "garden_bed_kol": 1,
+  "day": 1,
+  "weather": "солнце",
+  "tree": [],
+  "garden_bed": [
+    {
+      "DAY": 0,
+      "WEED": false,
+      "HERB": {
+        "ill": false,
+        "pest": false,
+        "life_day": 0,
+        "harvest_day": 0,
+        "type": "перец",
+        "water": 100,
+        "level_fertilization": 100
+      }
+    }
+  ]
+}

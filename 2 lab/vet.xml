@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+  <vet>
+    <pet>
+      <name>Кеша</name>
+      <date>15.04.2014</date>
+      <last_visit>23.02.2020</last_visit>
+      <veterinarian>Соболев А. Б.</veterinarian>
+      <diagnosis>Алопеция</diagnosis>
+    </pet>
+    <pet>
+      <name>Наташа</name>
+      <date>14.07.2018</date>
+      <last_visit>23.01.2021</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Почечная недостаточность</diagnosis>
+    </pet>
+    <pet>
+      <name>Кефир</name>
+      <date>01.01.2020</date>
+      <last_visit>22.11.2019</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Колики</diagnosis>
+    </pet>
+    <pet>
+      <name>Пушок</name>
+      <date>30.05.2008</date>
+      <last_visit>30.04.2020</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Диатез</diagnosis>
+    </pet>
+    <pet>
+      <name>Мурка</name>
+      <date>21.06.2019</date>
+      <last_visit>29.05.2020</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Запор</diagnosis>
+    </pet>
+    <pet>
+      <name>Петя</name>
+      <date>23.09.2017</date>
+      <last_visit>01.04.2022</last_visit>
+      <veterinarian>Петров А. С.</veterinarian>
+      <diagnosis>Облысение</diagnosis>
+    </pet>
+    <pet>
+      <name>Рики</name>
+      <date>01.06.2018</date>
+      <last_visit>25.01.2020</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Тахикардия</diagnosis>
+    </pet>
+    <pet>
+      <name>Боб</name>
+      <date>19.09.2019</date>
+      <last_visit>28.11.2021</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Гипертония</diagnosis>
+    </pet>
+    <pet>
+      <name>Рустем</name>
+      <date>22.05.2018</date>
+      <last_visit>13.05.2020</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>Перелом лапы</diagnosis>
+    </pet>
+    <pet>
+      <name>Рыжик</name>
+      <date>20.07.2019</date>
+      <last_visit>28.05.2021</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Колики</diagnosis>
+    </pet>
+    <pet>
+      <name>Дося</name>
+      <date>27.11.1999</date>
+      <last_visit>31.05.2019</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Грыжа</diagnosis>
+    </pet>
+      <pet>
+      <name>Ричард</name>
+      <date>04.06.2009</date>
+      <last_visit>25.01.2022</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Отёк хвоста</diagnosis>
+    </pet>
+    <pet>
+      <name>Дружок</name>
+      <date>22.12.2021</date>
+      <last_visit>28.12.2022</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Аллергия на корм</diagnosis>
+    </pet>
+    <pet>
+      <name>Фунтик</name>
+      <date>29.05.2020</date>
+      <last_visit>18.09.2021</last_visit>
+      <veterinarian>Рософонов Г. П.</veterinarian>
+      <diagnosis>Ожирение</diagnosis>
+    </pet>
+    <pet>
+      <name>Жорик</name>
+      <date>08.08.2018</date>
+      <last_visit>07.02.2022</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Обследование на бешенство</diagnosis>
+    </pet>
+    <pet>
+      <name>Уксус</name>
+      <date>22.01.2000</date>
+      <last_visit>31.05.2020</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Алопеция</diagnosis>
+    </pet>
+    <pet>
+      <name>Кеша</name>
+      <date>15.04.2014</date>
+      <last_visit>23.02.2020</last_visit>
+      <veterinarian>Соболев А. Б.</veterinarian>
+      <diagnosis>Алопеция</diagnosis>
+    </pet>
+    <pet>
+      <name>Наташа</name>
+      <date>14.07.2018</date>
+      <last_visit>23.01.2021</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Почечная недостаточность</diagnosis>
+    </pet>
+    <pet>
+      <name>Кефир</name>
+      <date>01.01.2020</date>
+      <last_visit>22.11.2019</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Колики</diagnosis>
+    </pet>
+    <pet>
+      <name>Тузик</name>
+      <date>15.04.2014</date>
+      <last_visit>23.02.2020</last_visit>
+      <veterinarian>Соболев А. Б.</veterinarian>
+      <diagnosis>Аллергия</diagnosis>
+    </pet>
+    <pet>
+      <name>Вася</name>
+      <date>14.07.2018</date>
+      <last_visit>23.01.2021</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>Почечная недостаточность</diagnosis>
+    </pet>
+    <pet>
+      <name>Тося</name>
+      <date>01.01.2020</date>
+      <last_visit>22.11.2019</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Пролапс клапана</diagnosis>
+    </pet>
+    <pet>
+      <name>Кефир</name>
+      <date>11.01.2020</date>
+      <last_visit>22.11.2021</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Тахикардия</diagnosis>
+    </pet>
+      <pet>
+      <name>Элли</name>
+      <date>05.05.2015</date>
+      <last_visit>21.11.2020</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Беременность</diagnosis>
+    </pet>
+    <pet>
+      <name>Пушок</name>
+      <date>07.07.2016</date>
+      <last_visit>30.04.2020</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Истощение</diagnosis>
+    </pet>
+    <pet>
+      <name>Семён</name>
+      <date>10.10.2020</date>
+      <last_visit>29.05.2021</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Нервное истощение</diagnosis>
+    </pet>
+    <pet>
+      <name>Тузик</name>
+      <date>23.09.2017</date>
+      <last_visit>01.04.2022</last_visit>
+      <veterinarian>Петров А. С.</veterinarian>
+      <diagnosis>Перелом хвоста</diagnosis>
+    </pet>
+    <pet>
+      <name>Рики</name>
+      <date>01.06.2021</date>
+      <last_visit>25.01.2022</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Глисты</diagnosis>
+    </pet>
+    <pet>
+      <name>Боб</name>
+      <date>19.09.2010</date>
+      <last_visit>20.11.2021</last_visit>
+      <veterinarian>Петров А. С.</veterinarian>
+      <diagnosis>Гипертония</diagnosis>
+    </pet>
+    <pet id="1">
+		<name>Шарик</name>
+		<date>15.04.2014</date>
+        <last_visit>23.02.2020</last_visit>
+        <veterinarian>Игнатов О.Р.</veterinarian>
+        <diagnosis>Ангина</diagnosis>
+	</pet>
+    <pet id="2">
+		<name>Лапочка</name>
+		<date>09.12.1999</date>
+        <last_visit>25.07.2021</last_visit>
+        <veterinarian>Соболев А.Б.</veterinarian>
+        <diagnosis>Почечная недостаточность</diagnosis>
+	</pet>
+    <pet id="3">
+		<name>Кефир</name>
+		<date>04.06.2001</date>
+        <last_visit>06.03.2021</last_visit>
+        <veterinarian>Мур У.Е.</veterinarian>
+        <diagnosis>Рак</diagnosis>
+	</pet>
+    <pet>
+      <name>Вуди</name>
+      <date>30.04.2006</date>
+      <last_visit>04.08.2019</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Колики</diagnosis>
+    </pet>
+    <pet>
+      <name>Пушок</name>
+      <date>02.05.2008</date>
+      <last_visit>30.03.2020</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Диатез</diagnosis>
+    </pet>
+    <pet>
+      <name>Мурка</name>
+      <date>21.06.2019</date>
+      <last_visit>29.05.2020</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Запор</diagnosis>
+    </pet>
+    <pet>
+      <name>Маня</name>
+      <date>08.09.2017</date>
+      <last_visit>01.04.2022</last_visit>
+      <veterinarian>Петров А. С.</veterinarian>
+      <diagnosis>Облысение</diagnosis>
+    </pet>
+    <pet>
+      <name>Пепа</name>
+      <date>01.06.2018</date>
+      <last_visit>25.01.2020</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Тахикардия</diagnosis>
+    </pet>
+    <pet>
+      <name>Крис</name>
+      <date>10.09.2010</date>
+      <last_visit>16.11.2021</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Гипертония</diagnosis>
+    </pet>
+    <pet>
+      <name>Кекс</name>
+      <date>17.08.2009</date>
+      <last_visit>13.02.2022</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Внутреннее кровотечение</diagnosis>
+    </pet>
+    <pet>
+      <name>Барсик</name>
+      <date>20.07.2019</date>
+      <last_visit>28.05.2021</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>Колики</diagnosis>
+    </pet>
+    <pet>
+      <name>Дося</name>
+      <date>14.11.1997</date>
+      <last_visit>31.04.2019</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>Поликистоз</diagnosis>
+    </pet>
+    <pet>
+      <name>Кузя</name>
+      <date>25.05.2001</date>
+      <last_visit>30.05.2022</last_visit>
+      <veterinarian>Рогов В. В.</veterinarian>
+      <diagnosis>Диатез</diagnosis>
+    </pet>
+    <pet>
+      <name>Хома</name>
+      <date>21.06.2019</date>
+      <last_visit>20.09.2020</last_visit>
+      <veterinarian>Пушкин А. С.</veterinarian>
+      <diagnosis>Отравление</diagnosis>
+    </pet>
+    <pet>
+      <name>Ричард</name>
+      <date>08.09.2017</date>
+      <last_visit>01.07.2022</last_visit>
+      <veterinarian>Петров А. С.</veterinarian>
+      <diagnosis>Перелом уха</diagnosis>
+    </pet>
+    <pet>
+      <name>Пепа</name>
+      <date>01.06.2018</date>
+      <last_visit>19.06.2021</last_visit>
+      <veterinarian>Кукушкин Р. В.</veterinarian>
+      <diagnosis>Отёк горла</diagnosis>
+    </pet>
+    <pet>
+      <name>Люся</name>
+      <date>10.03.2016</date>
+      <last_visit>15.11.2021</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Гипертония</diagnosis>
+    </pet>
+    <pet>
+      <name>Полли</name>
+      <date>18.03.2009</date>
+      <last_visit>17.04.2022</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Авитаминоз</diagnosis>
+    </pet>
+    <pet>
+      <name>Барсик</name>
+      <date>20.07.2019</date>
+      <last_visit>28.05.2021</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>ОРВИ</diagnosis>
+    </pet>
+    <pet>
+      <name>Нюра</name>
+      <date>15.12.2003</date>
+      <last_visit>14.12.2019</last_visit>
+      <veterinarian>Мур У.Е.</veterinarian>
+      <diagnosis>Астма</diagnosis>
+    </pet>
+    <pet>
+      <name>Дружок</name>
+      <date>22.12.2021</date>
+      <last_visit>28.12.2022</last_visit>
+      <veterinarian>Игнатьев Б. А.</veterinarian>
+      <diagnosis>Аллергия на корм</diagnosis>
+    </pet>
+  </vet>

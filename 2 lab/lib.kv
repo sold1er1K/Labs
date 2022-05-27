@@ -1,0 +1,1551 @@
+#:import Factory kivy.factory.Factory
+
+ScreenManager:
+    id: screen_manager
+    MenuScreen:
+        id: menu_screen
+        name: 'Меню'
+        manager: screen_manager
+    DisplayDataScreen:
+        id: display_data_screen
+        name: "Данные"
+        manager: screen_manager
+
+
+<DownloadPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Загрузка данных из файла"
+    size_hint: .6, .6
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        Label:
+            font_size: 20
+            text: "Выберите файл"
+            size_hint: 1, .18
+            color: 0.34, 0.14, 0.43, 1
+
+        FileChooserListView:
+            id: filechooser
+            on_selection: app.controller.selected(filechooser.selection, label, button)
+
+        RoundedButton_2:
+            id: button
+            size_hint: 1, .2
+            text: "Загрузить"
+            font_size: 20
+            disabled: False
+            on_release: app.controller.load_to_dctnry(button)
+            color: 0.34, 0.14, 0.43
+
+        Label:
+            id: label
+            font_size: 20
+            text: ""
+            size_hint: 1, .18
+            color: 0.34, 0.14, 0.43, 1
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<SavePopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Сохранение данных в файл"
+    size_hint: .6, .6
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+
+        Label:
+            font_size: 28
+            text: "Введите название файла"
+            color: 0.34, 0.14, 0.43
+            size_hint: 1, .3
+
+        TextInput:
+            id: file_name
+            multiline: False
+            size_hint: 1, .3
+
+        Button:
+            color: 0.34, 0.14, 0.43
+            background_color: 0.92, 0.75, 1
+            background_normal: ''
+            text: "Ввод"
+            font_size: 20
+            disabled: False
+            size_hint: 1, .18
+            on_press: app.controller.save_to_file(file_name, status)
+
+        Label:
+            id: status
+            font_size: 20
+            text: "Статус"
+            size_hint: 1, .18
+            color: 0.34, 0.14, 0.43, 1
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<AddPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Добавление данных"
+    size_hint: 1, .8
+    name: 'add_popup'
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+        id: box_1
+
+        Label:
+            font_size: 28
+            text: "Введите данные"
+            color: 0.34, 0.14, 0.43, 1
+            size_hint: 1, .1
+
+        BoxLayout:
+            size_hint: 1, 1
+            id: box_2
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 20
+                    text: "Имя:"
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    text: "Дата рождения:"
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    text: "Дата последнего приёма:"
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    text: "ФИО ветеринара:"
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    text: "Диагноз:"
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 10
+                size_hint: 1, 1
+                id: box_3
+
+                TextInput:
+                    size_hint: 1, .9
+                    id: input_name
+                    multiline: False
+
+                BoxLayout:
+                    spacing: 5
+
+                    Label:
+                        id: input_date_of_birth
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.input_date_of_birth
+                        color: 0.34, 0.14, 0.43
+
+                BoxLayout:
+                    spacing: 5
+
+                    Label:
+                        id: input_date_of_visit
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.input_date_of_visit
+                        color: 0.34, 0.14, 0.43
+
+                TextInput:
+                    id: input_veterinarian
+                    size_hint: 1, .9
+                    multiline: False
+
+                TextInput:
+                    id: input_diagnosis
+                    size_hint: 1, .9
+                    multiline: False
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Ввод"
+            font_size: 20
+            disabled: False
+            on_press: app.controller.add(input_name, input_date_of_birth, input_date_of_visit, input_veterinarian, input_diagnosis, status)
+            color: 0.34, 0.14, 0.43
+
+        Label:
+            id: status
+            text: "Статус"
+            color: 0.34, 0.14, 0.43
+            font_size: 20
+            size_hint: 1, .2
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+
+<DeletePopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Выбор критерия удаления"
+    size_hint: .5, .5
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 5
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По имени питомца и дате рождения"
+                font_size: 14
+                disabled: False
+                on_press: Factory.FDelPopup().open()
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По дате последнего приема и ФИО ветеринара"
+                font_size: 14
+                disabled: False
+                on_press: Factory.SDelPopup().open()
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По фразе из диагноза"
+                font_size: 14
+                disabled: False
+                on_press: Factory.TDelPopup().open()
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<FDelPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Удаление по имени питомца и дате рождения"
+    size_hint: .8, .8
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        BoxLayout:
+            size_hint: 1, .04
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 20
+                    color:0.34, 0.14, 0.43, 1
+                    text: "Имя питомца"
+
+                Label:
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+                    text: "Дата рождения"
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+
+                    TextInput:
+                        id: textinput
+                        multiline: False
+
+                    Spinner:
+                        id: spinner
+                        text:">"
+                        background_normal: ''
+                        background_color: 0.82, 0.43, 1, 1
+                        color: 0.34, 0.14, 0.43
+                        values: app.model.spinner_names(0)
+                        on_text: app.spinner_clicked(textinput, spinner)
+                        dropdown_cls: Factory.CustomDropdown
+                        option_cls: Factory.CustomSpinnerOptions
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+
+                    Label:
+                        id: date
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.date
+                        color: 0.34, 0.14, 0.43
+
+        RoundedButton_2:
+            color: 0.34, 0.14, 0.43
+            text: "Удалить"
+            font_size: 20
+            disabled: False
+            size_hint: 1, .3
+            on_press: app.controller.f_dell(textinput, date, status)
+
+        Label:
+            id: status
+            font_size: 20
+            text: "Статус"
+            size_hint: 1, .3
+            color: 0.34, 0.14, 0.43, 1
+
+        RoundedButton_2:
+            size_hint: 1, .3
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<SDelPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Удаление по дате последнего приема и ФИО ветеринара"
+    size_hint: .8, .8
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+                    text: "ФИО ветеринара"
+
+                Label:
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+                    text: "Дата последнего приёма"
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+
+                    TextInput:
+                        id: textinput_name
+                        multiline: False
+
+                    Spinner:
+                        id: spinner
+                        text:">"
+                        background_normal: ''
+                        background_color: 0.82, 0.43, 1, 1
+                        color: 0.34, 0.14, 0.43
+                        values: app.model.spinner_names(3)
+                        on_text: app.spinner_clicked(textinput_name, spinner)
+                        dropdown_cls: Factory.CustomDropdown
+                        option_cls: Factory.CustomSpinnerOptions
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+
+                    Label:
+                        id: date
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.date
+                        color: 0.34, 0.14, 0.43
+
+
+        RoundedButton_2:
+            color: 0.34, 0.14, 0.43
+            text: "Удалить"
+            font_size: 20
+            disabled: False
+            size_hint: 1, .3
+            on_press: app.controller.s_dell(textinput_name, date, status)
+
+        Label:
+            id: status
+            font_size: 20
+            color: 0.34, 0.14, 0.43, 1
+            text: "Статус"
+            size_hint: 1, .3
+
+        RoundedButton_2:
+            size_hint: 1, .3
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+
+<TDelPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Удаление по фразе из диагноза"
+    size_hint: .8, .8
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        BoxLayout:
+            size_hint: 1, .04
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                Label:
+                    font_size: 20
+                    color: 0.34, 0.14, 0.43, 1
+                    text: "Фраза из диагноза"
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                TextInput:
+                    id: textinput
+                    multiline: False
+
+        RoundedButton_2:
+            color: 0.34, 0.14, 0.43
+            text: "Удалить"
+            font_size: 20
+            disabled: False
+            size_hint: 1, .3
+            on_press: app.controller.t_dell(textinput, status)
+
+        Label:
+            id: status
+            font_size: 20
+            color: 0.34, 0.14, 0.43, 1
+            text: "Статус"
+            size_hint: 1, .3
+
+        RoundedButton_2:
+            size_hint: 1, .3
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<SearchPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Выбор критерия поиска"
+    size_hint: .5, .5
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 5
+            size_hint: 1, .8
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По имени питомца и дате рождения"
+                font_size: 14
+                disabled: False
+                on_press: Factory.FSearchPopup().open()
+                on_press: app.search.clear()
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По дате последнего приема и ФИО ветеринара"
+                font_size: 14
+                disabled: False
+                on_press: Factory.SSearchPopup().open()
+                on_press: app.search.clear()
+
+            RoundedButton_2:
+                color: 0.34, 0.14, 0.43
+                text: "По фразе из диагноза"
+                font_size: 14
+                disabled: False
+                on_press: Factory.TSearchPopup().open()
+                on_press: app.search.clear()
+
+        RoundedButton_2:
+            size_hint: 1, .2
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<FSearchPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Поиск по имени питомца и дате рождения"
+    size_hint: 1, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+            size_hint: 1, .3
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 16
+                    text: "Имя питомца"
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    font_size: 16
+                    text: "Дата рождения"
+                    color: 0.34, 0.14, 0.43, 1
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                BoxLayout:
+                    spacing: 5
+
+                    TextInput:
+                        id: textinput_name
+                        multiline: False
+
+                    Spinner:
+                        id: spinner
+                        text:">"
+                        background_normal: ''
+                        background_color:  0.82, 0.43, 1, 1
+                        color: 0.34, 0.14, 0.43
+                        values: app.model.spinner_names(0)
+                        on_text: app.spinner_clicked(textinput_name, spinner)
+                        dropdown_cls: Factory.CustomDropdown
+                        option_cls: Factory.CustomSpinnerOptions
+
+                BoxLayout:
+                    spacing: 5
+
+                    Label:
+                        id: date
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.date
+                        color: 0.34, 0.14, 0.43
+
+        RoundedButton_2:
+            size_hint: 1, .1
+            color: 0.34, 0.14, 0.43
+            background_color:  0.82, 0.43, 1, 1
+            background_normal: ''
+            text: "Поиск"
+            font_size: 20
+            disabled: False
+            on_press: app.search.f_search(textinput_name, date, status, gl, app.model.dctnry, record, page)
+
+        BoxLayout:
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+
+                BoxLayout:
+                    padding: 5
+                    size_hint: 1, .1
+
+                    Label:
+                        font_size: 14
+                        text: "Имя питомца"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата рождения"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата последнего приема"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "ФИО ветеринара"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Диагноз"
+                        color: 0.34, 0.14, 0.43, 1
+
+                GridLayout:
+                    id: gl
+                    cols: 5
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+                    size_hint: 1, .1
+
+                    RoundedButton_2:
+                        text: "<-"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '-', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_first_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        id: current_page
+                        font_size: 20
+                        text: "1"
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        id: page
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_last_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "->"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '+', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 10
+                size_hint: .2, 1
+
+                Label:
+                    id: record
+                    size_hint: 1, .1
+                    text: "Кол-во записей: 0"
+                    color: 0.34, 0.14, 0.43, 1
+
+
+                Label:
+                    size_hint: 1, .1
+                    text: "Кол-во на страницу:"
+                    color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "5"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "10"
+                        color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    CheckBox:
+                        group:"num_record"
+                        active: "down"
+                        on_active: app.search.to_x_record(5, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    CheckBox:
+                        group:"num_record"
+                        on_active: app.search.to_x_record(10, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                Image:
+                    source: 'cattt.png'
+                    size: self.texture_size
+
+                Widget:
+                    text: ""
+
+        Label:
+            id: status
+            font_size: 20
+            text: ""
+            size_hint: 1, .15
+            color: 0.34, 0.14, 0.43, 1
+
+        RoundedButton_2:
+            size_hint: 1, .15
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+
+<SSearchPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color: 0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Поиск по дате последнего посещения и ФИО ветеринара"
+    size_hint: 1, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+            size_hint: 1, .3
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 16
+                    text: "ФИО ветеринара"
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    font_size: 16
+                    text: "Дата последнего приёма"
+                    color: 0.34, 0.14, 0.43, 1
+
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                BoxLayout:
+                    spacing: 5
+
+                    TextInput:
+                        id: textinput_name
+                        multiline: False
+
+                    Spinner:
+                        id: spinner
+                        text:">"
+                        background_color: 0.82, 0.43, 1
+                        background_normal: ''
+                        color: 0.34, 0.14, 0.43
+                        values:[]
+                        values: app.model.spinner_names(3)
+                        on_text: app.spinner_clicked(textinput_name, spinner)
+                        dropdown_cls: Factory.CustomDropdown
+                        option_cls: Factory.CustomSpinnerOptions
+
+                BoxLayout:
+                    spacing: 5
+
+                    Label:
+                        id: date
+                        text: ""
+                        font_size: 20
+                        color: 0.34, 0.14, 0.43, 1
+
+                    RoundedButton_2:
+                        size_hint: .5, .9
+                        text: "Выбрать дату"
+                        font_size: 20
+                        disabled: False
+                        on_press: app.date_picker()
+                        on_release: app.buffer = root.ids.date
+                        color: 0.34, 0.14, 0.43
+
+        RoundedButton_2:
+            size_hint: 1, .15
+            color: 0.34, 0.14, 0.43
+            background_color: 0.82, 0.43, 1, 1
+            background_normal: ''
+            text: "Поиск"
+            font_size: 20
+            disabled: False
+            on_press: app.search.s_search(textinput_name, date, status, gl, app.model.dctnry, record, page)
+
+        BoxLayout:
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+
+                BoxLayout:
+                    padding: 5
+                    size_hint: 1, .1
+
+                    Label:
+                        font_size: 14
+                        text: "Имя питомца"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата рождения"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата последнего приема"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "ФИО ветеринара"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Диагноз"
+                        color: 0.34, 0.14, 0.43, 1
+
+                GridLayout:
+                    id: gl
+                    cols: 5
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+                    size_hint: 1, .1
+
+                    RoundedButton_2:
+                        text: "<-"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '-', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_first_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        id: current_page
+                        font_size: 20
+                        text: "1"
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        id: page
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_last_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "->"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '+', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 10
+                size_hint: .2, 1
+
+                Label:
+                    id: record
+                    size_hint: 1, .1
+                    text: "Кол-во записей: 0"
+                    color: 0.34, 0.14, 0.43, 1
+
+
+
+                Label:
+                    size_hint: 1, .1
+                    text: "Кол-во на страницу:"
+                    color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "5"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "10"
+                        color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    CheckBox:
+                        group:"num_record"
+                        active: "down"
+                        on_active: app.search.to_x_record(5, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    CheckBox:
+                        group:"num_record"
+                        on_active: app.search.to_x_record(10, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                Image:
+                    source: 'cattt.png'
+                    size: self.texture_size
+
+                Widget:
+                    text: ""
+
+        Label:
+            id: status
+            font_size: 20
+            text: ""
+            size_hint: 1, .15
+            color: 0.34, 0.14, 0.43
+
+        RoundedButton_2:
+            size_hint: 1, .15
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+
+<TSearchPopup@Popup>:
+    background: ''
+    background_color: 0.92, 0.75, 1
+    title_color:  0.34, 0.14, 0.43, 1
+    auto_dismiss: False
+    title: "Поиск по фразе из диагноза"
+    size_hint: 1, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+
+        BoxLayout:
+            padding: 5
+            spacing: 5
+            size_hint: 1, .3
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+                size_hint: .4, 1
+
+                Label:
+                    font_size: 16
+                    text: "Фраза из диагноза"
+                    color: 0.34, 0.14, 0.43, 1
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                TextInput:
+                    id: textinput
+                    multiline: False
+
+        RoundedButton_2:
+            size_hint: 1, .15
+            color: 0.34, 0.14, 0.43
+            background_color: 0.82, 0.43, 1, 1
+            background_normal: ''
+            text: "Поиск"
+            font_size: 20
+            disabled: False
+            on_press: app.search.t_search(textinput, status, gl, app.model.dctnry, record, page)
+
+        BoxLayout:
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+
+                BoxLayout:
+                    padding: 5
+                    size_hint: 1, .1
+
+                    Label:
+                        font_size: 14
+                        text: "Имя питомца"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата рождения"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Дата последнего приема"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "ФИО ветеринара"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        font_size: 14
+                        text: "Диагноз"
+                        color: 0.34, 0.14, 0.43, 1
+
+                GridLayout:
+                    id: gl
+                    cols: 5
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+                    size_hint: 1, .1
+
+                    RoundedButton_2:
+                        text: "<-"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '-', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_first_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        id: current_page
+                        font_size: 20
+                        text: "1"
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        id: page
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_last_page(current_page, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    RoundedButton_2:
+                        text: "->"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.search.to_x_page(current_page, '+', gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 10
+                size_hint: .2, 1
+
+                Label:
+                    id: record
+                    size_hint: 1, .1
+                    text: "Кол-во записей: 0"
+                    color: 0.34, 0.14, 0.43, 1
+
+
+
+                Label:
+                    size_hint: 1, .1
+                    text: "Кол-во на страницу:"
+                    color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "5"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "10"
+                        color: 0.34, 0.14, 0.43, 1
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    CheckBox:
+                        group:"num_record"
+                        active: "down"
+                        on_active: app.search.to_x_record(5, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                    CheckBox:
+                        group:"num_record"
+                        on_active: app.search.to_x_record(10, gl, record, page)
+                        color: 0.34, 0.14, 0.43
+
+                Image:
+                    source: 'cattt.png'
+                    size: self.texture_size
+
+                Widget:
+                    text: ""
+
+        Label:
+            id: status
+            font_size: 20
+            text: ""
+            size_hint: 1, .15
+            color: 0.34, 0.14, 0.43
+
+        RoundedButton_2:
+            size_hint: 1, .15
+            text: "Закрыть"
+            font_size: 20
+            disabled: False
+            on_press: root.dismiss()
+            color: 0.34, 0.14, 0.43
+
+<MenuScreen>
+
+    BoxLayout:
+        padding: 25, 0, 0, 0
+
+        Image:
+            source: 'cat.png'
+            size: self.texture_size
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 25, 25, 25, 40
+            spacing: 10
+
+            Image:
+                source: 'catt.png'
+                size: self.texture_size
+
+
+
+            RoundedButton:
+                on_press: app.show_data()
+                color: 0.34, 0.14, 0.43
+                text: "Просмотр"
+                font_size: 24
+                disabled: False
+                on_release: root.manager.current = 'Данные'
+
+            RoundedButton:
+                color: 0.34, 0.14, 0.43
+                text: "Поиск"
+                font_size: 24
+                disabled: False
+                on_release: Factory.SearchPopup().open()
+
+            RoundedButton:
+                color:0.34, 0.14, 0.43
+                text: "Добавить"
+                font_size: 24
+                disabled: False
+                on_press: Factory.AddPopup().open()
+
+            RoundedButton:
+                color: 0.34, 0.14, 0.43
+                text: "Удалить"
+                font_size: 24
+                disabled: False
+                on_press: Factory.DeletePopup().open()
+
+            RoundedButton:
+                color: 0.34, 0.14, 0.43
+                text: "Загрузить"
+                font_size: 24
+                disabled: False
+                on_press: Factory.DownloadPopup().open()
+
+            RoundedButton:
+                color: 0.34, 0.14, 0.43
+                text: "Сохранить"
+                font_size: 24
+                disabled: False
+                on_release: Factory.SavePopup().open()
+
+
+
+<DisplayDataScreen>:
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+        id: bl_1
+
+        MDToolbar:
+            md_bg_color: 0.82, 0.43, 1, 1
+            specific_text_color: 0.34, 0.14, 0.43
+            size_hint: 1, .05
+            elevation: 10
+            left_action_items:
+                [
+                ["text-search", lambda x: Factory.SearchPopup().open(), "Поиск"],
+                ["plus", lambda x: Factory.AddPopup().open(), "Добавить"],
+                ["delete", lambda x: Factory.DeletePopup().open(), "Удалить"],
+                ["content-save", lambda x: Factory.SavePopup().open(), "Сохранить"],
+                ["download", lambda x: Factory.DownloadPopup().open(), "Загрузить"],
+
+                ]
+
+        GridLayout:
+            cols: 2
+            id: gl_1
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 5
+                background_color: 1, 0, 0, 1
+                background_normal: ''
+                id: bl_2
+
+                BoxLayout:
+                    padding: 5
+                    size_hint: 1, .1
+
+                    Label:
+                        font_size: 14
+                        text: "Имя питомца"
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        font_size: 14
+                        text: "Дата рождения"
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        font_size: 14
+                        text: "Дата последнего приема"
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        font_size: 14
+                        text: "ФИО ветеринара"
+                        color: 0.34, 0.14, 0.43
+
+                    Label:
+                        font_size: 14
+                        text: "Диагноз"
+                        color: 0.34, 0.14, 0.43
+
+                GridLayout:
+                    cols: 5
+                    id: gl_2
+
+                BoxLayout:
+                    padding: 5
+                    spacing: 5
+                    size_hint: 1, .1
+
+                    Button:
+                        color: 0, 0, 0, 1
+                        text: "<-"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.to_x_page(current_page, '-')
+                        color: 0.34, 0.14, 0.43
+                        background_color: 0.82, 0.43, 1, 1
+                        background_normal: ''
+
+                    Button:
+                        color: 0, 0, 0, 1
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.to_first_page(current_page)
+                        color: 0.34, 0.14, 0.43
+                        background_color: 0.82, 0.43, 1, 1
+                        background_normal: ''
+
+                    Label:
+                        id: current_page
+                        font_size: 20
+                        text: "1"
+                        color: 0.34, 0.14, 0.43
+
+                    Button:
+                        id: last_page
+                        color: 0, 0, 0, 1
+                        text: "1"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.to_last_page(current_page)
+                        color: 0.34, 0.14, 0.43
+                        background_color: 0.82, 0.43, 1, 1
+                        background_normal: ''
+
+                    Button:
+                        color: 0, 0, 0, 1
+                        text: "->"
+                        font_size: 14
+                        disabled: False
+                        on_press: app.to_x_page(current_page, '+')
+                        color: 0.34, 0.14, 0.43
+                        background_color: 0.82, 0.43, 1, 1
+                        background_normal: ''
+                        radius: [40]
+
+
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 9
+                size_hint: .2, 1
+
+                Label:
+                    id: number_record
+                    size_hint: 1, .1
+                    text: "Кол-во записей: 0"
+                    color: 0.34, 0.14, 0.43, 1
+
+                Label:
+                    size_hint: 1, .1
+                    text: "Кол-во на страницу:"
+                    color: 0.34, 0.14, 0.43, 1
+
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "5"
+                        color: 0.34, 0.14, 0.43, 1
+
+                    Label:
+                        size_hint: 1, .1
+                        text: "10"
+                        color: 0.34, 0.14, 0.43, 1
+                    Label:
+                        size_hint: 1, .1
+                        text: "20"
+                        color: 0.34, 0.14, 0.43, 1
+
+
+
+                BoxLayout:
+                    size_hint: 1, .1
+                    spacing: 5
+
+                    CheckBox:
+                        group:"num_record"
+                        active: "down"
+                        on_active: app.to_x_record(5)
+                        color: 0.34, 0.14, 0.43
+
+                    CheckBox:
+                        group:"num_record"
+                        on_active: app.to_x_record(10)
+                        color: 0.34, 0.14, 0.43
+
+                    CheckBox:
+                        group:"num_record"
+                        on_active: app.to_x_record(20)
+                        color: 0.34, 0.14, 0.43
+
+                Image:
+                    source: 'cattt.png'
+                    size: self.texture_size
+
+                Widget:
+                    text: ""
+
+
+<RoundedButton@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: 0.82, 0.43, 1, 1
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [30]
+
+<RoundedButton_2@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: 0.82, 0.43, 1, 1
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+
+<CustomSpinnerOptions@SpinnerOption>:
+    background_color: 0.82, 0.43, 1, 1
+    background_normal: ''
+
+<CustomDropdown@DropDown>:
+    max_height: 165
+    bar_width: 5
+    bar_color: 0.82, 0.43, 1, 1
+    effect_cls: 'ScrollEffect'
+    scroll_type: ['bars', 'content']
